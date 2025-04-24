@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Internationalization (i18n)
+
+This project uses [next-intl](https://next-intl-docs.vercel.app/) for multi-language support (English/Korean).
+
+- To add or edit translations, update the files in `/locales/en/common.json` and `/locales/ko/common.json`.
+- To add a new language, create a new folder in `/locales` (e.g., `/locales/ja/common.json`) and add the language code to `locales` in `next.config.ts`.
+- The app will automatically detect the language from the URL (e.g., `/en`, `/ko`).

@@ -87,21 +87,7 @@ export default function Home() {
     const file = e.target.files?.[0];
     if (file) {
       setFileName(file.name);
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const text = event.target?.result as string;
-        if (!text) return;
-        // Split lines, skip empty, skip header if looks like one
-        let lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-        // If first line looks like a header, skip it
-        if (lines[0] && /review|리뷰|comment|내용|text/i.test(lines[0])) {
-          lines = lines.slice(1);
-        }
-        // Use only the first column (comma or tab separated)
-        const reviews = lines.map(line => line.split(/,|\t/)[0].trim()).filter(Boolean);
-        setInput(reviews.join('\n'));
-      };
-      reader.readAsText(file);
+      // TODO: Parse CSV and setInput
     }
   };
 
@@ -195,7 +181,7 @@ export default function Home() {
             <div className="text-center max-w-2xl">
               <div className="text-2xl font-bold mb-1 text-gray-900">{txt('Find signals among hundreds of reviews with AI.', '수백개의 리뷰 속에서 헤엄치고 있는 고객의 목소리를 분석해보세요')}</div>
               <div className="text-gray-500 text-lg mb-5 font-normal">
-                {txt("When it comes to customer reviews, it's not about feeling - it's about data.", "더 이상 느낌을 믿지 마세요, 진짜 데이터를 보여드릴게요")}
+                {txt("When it comes to customer reviews, it's not about feeling - it's about data.", "더 이상 느낌을 믿지 마세요. 데이터를 보세요")}
               </div>
             </div>
           </div>
